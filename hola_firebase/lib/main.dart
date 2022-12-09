@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hola_firebase/screen/chat_list_screen.dart';
+import 'package:hola_firebase/screen/comics_grid_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -19,13 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/chats',
+      initialRoute: '/',
       routes: {
+        '/': (_) => const ComicGridScreen(),
         '/chats': (_) => const ChatListScreen(),
         '/messages': (_) => const Scaffold()
-      }
+      },
     );
   }
 }
-
-
