@@ -32,11 +32,15 @@ class _ComicGridScreenState extends State<ComicGridScreen> {
     }
     return Scaffold(
       appBar: AppBar(title: const Text("Comic List")),
-      body: ListView.separated(
+      body: GridView.builder(
         itemCount: comicList!.length,
         itemBuilder: (context, index) => ComicWidget(comic: comicList![index]),
-        separatorBuilder: (context, index) =>
-            const Divider(height: 1, indent: 70),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, // Número de columnas
+          crossAxisSpacing: 10.0, // Espacio entre columnas
+          mainAxisSpacing: 10.0, // Espacio entre filas
+          childAspectRatio: 1.0, // Relación de aspecto de las celdas
+        ),
       ),
     );
   }

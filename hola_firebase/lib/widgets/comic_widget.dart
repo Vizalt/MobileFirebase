@@ -11,13 +11,27 @@ class ComicWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return InkWell(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.network(
+            '${comic.thumbnailPath}/portrait_xmedium.${comic.thumbnailExt}', // URL de la imagen
+            fit: BoxFit.cover,
+          ),
+          ListTile(
+            title: Text(comic.title),
+            //subtitle: Text(comic.description),
+          ),
+        ],
+      ),
+
       /*leading: CircleAvatar(
         backgroundImage: NetworkImage(comic.thumbnail),
       ),*/
-      title: Text(comic.title),
+      /*title: Text(comic.title),
       subtitle: Text(comic.description),
-      trailing: Text("${comic.pageCount}"),
+      trailing: Text("${comic.pageCount}"),*/
       /*onTap: () {
         Navigator.of(context).pushNamed(
           '/user-details',

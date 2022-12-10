@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
@@ -11,7 +11,7 @@ class Comic {
   String title, description, format;
   int pageCount;
   //String publishDate;
-  String thumbnail;
+  String thumbnailPath, thumbnailExt;
 
   Comic({
     required this.title,
@@ -19,7 +19,8 @@ class Comic {
     required this.format,
     required this.pageCount,
     //required this.publishDate,
-    required this.thumbnail,
+    required this.thumbnailPath,
+    required this.thumbnailExt,
   });
 
   Comic.fromJson(Map<String, dynamic> json)
@@ -28,7 +29,8 @@ class Comic {
         format = json["format"],
         pageCount = json["pageCount"],
         //publishDate = json["dates"]["date"],
-        thumbnail = json["thumbnail"]["extension"];
+        thumbnailPath = json["thumbnail"]["path"],
+        thumbnailExt = json["thumbnail"]["extension"];
 }
 
 Future<List<Comic>> loadComicList([int numComics = 1]) async {
@@ -36,7 +38,7 @@ Future<List<Comic>> loadComicList([int numComics = 1]) async {
   String concatenatedString = '$timeStamp$privateKey$publicKey';
   String hash = md5.convert(utf8.encode(concatenatedString)).toString();
   final url = Uri.parse(
-      "https://gateway.marvel.com:443/v1/public/comics?hash=$hash&ts=$timeStamp&apikey=4f2186559bb378f4f73e573643459fe8");
+      "https://gateway.marvel.com:443/v1/public/comics?limit=$numComics&hash=$hash&ts=$timeStamp&apikey=4f2186559bb378f4f73e573643459fe8");
   final response = await http.get(url);
   final json = jsonDecode(response.body);
   final List jsonComicList = json["data"]["results"];
