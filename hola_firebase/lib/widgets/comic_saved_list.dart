@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class ChatList extends StatelessWidget {
-  const ChatList({super.key});
+class ComicList extends StatelessWidget {
+  const ComicList({super.key});
 
   @override
   Widget build(BuildContext context) {
     final db = FirebaseFirestore.instance;
     return StreamBuilder(
       stream: db
-          .collection("/chats")
+          .collection("/comics")
           .orderBy("createdAt", descending: true)
           .snapshots(),
       builder: (
@@ -34,12 +34,6 @@ class ChatList extends StatelessWidget {
               subtitle: Text(
                 "${date.toIso8601String()} ${doc.id}",
               ),
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  '/messages',
-                  arguments: doc.id,
-                );
-              },
             );
           },
         );

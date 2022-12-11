@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hola_firebase/model/comics.dart';
 
@@ -11,33 +12,39 @@ class ComicWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final db = FirebaseFirestore.instance;
     return InkWell(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      splashColor: const Color.fromARGB(255, 197, 52, 41).withAlpha(30),
+      onTap: (() {
+        db.collection("/comics").add({
+          'title': comic.title,
+          'createdAt': Timestamp.now(),
+        });
+      }),
+      child: Stack(
         children: [
-          Image.network(
-            '${comic.thumbnailPath}/portrait_xmedium.${comic.thumbnailExt}', // URL de la imagen
-            fit: BoxFit.cover,
+          Center(
+            child: Image.network(
+              '${comic.thumbnailPath}/standard_large.${comic.thumbnailExt}', // URL de la imagen
+            ),
           ),
-          ListTile(
-            title: Text(comic.title),
-            //subtitle: Text(comic.description),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: 300,
+              height: 50,
+              color: const Color.fromARGB(144, 37, 37, 37),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  comic.title,
+                  style: const TextStyle(fontSize: 15, color: Colors.white),
+                ),
+              ),
+            ),
           ),
         ],
       ),
-
-      /*leading: CircleAvatar(
-        backgroundImage: NetworkImage(comic.thumbnail),
-      ),*/
-      /*title: Text(comic.title),
-      subtitle: Text(comic.description),
-      trailing: Text("${comic.pageCount}"),*/
-      /*onTap: () {
-        Navigator.of(context).pushNamed(
-          '/user-details',
-          arguments: user,
-        );
-      },*/
     );
   }
 }
