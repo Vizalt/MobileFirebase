@@ -51,18 +51,20 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBYk2_LCB-fwEXY4TzvBAPENvJvQldfVqk',
-    appId: '1:677161154322:web:cc982405508851cb2ee5cb',
+    appId: '1:677161154322:web:f2dd6acf523230e92ee5cb',
     messagingSenderId: '677161154322',
     projectId: 'davidbc-dm',
     authDomain: 'davidbc-dm.firebaseapp.com',
+    databaseURL: 'https://davidbc-dm-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'davidbc-dm.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAqUlp6Fl9suL2hv2gav3uMoPUdYnlaVvY',
-    appId: '1:677161154322:android:01bb34295e38f4ca2ee5cb',
+    appId: '1:677161154322:android:d7d475ee2cb3457a2ee5cb',
     messagingSenderId: '677161154322',
     projectId: 'davidbc-dm',
+    databaseURL: 'https://davidbc-dm-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'davidbc-dm.appspot.com',
   );
 }
