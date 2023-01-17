@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hola_firebase/model/comics.dart';
 import 'package:hola_firebase/screen/comic_saved_list_screen.dart';
-import 'package:hola_firebase/screen/comic_selected_screen.dart';
 import 'package:hola_firebase/screen/comics_grid_screen.dart';
 
 import 'firebase_options.dart';
