@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hola_firebase/model/comics.dart';
+import 'package:hola_firebase/screen/comic_selected_screen.dart';
 
 class ComicWidget extends StatelessWidget {
   const ComicWidget({
@@ -16,10 +17,19 @@ class ComicWidget extends StatelessWidget {
     return InkWell(
       splashColor: const Color.fromARGB(255, 197, 52, 41).withAlpha(30),
       onTap: (() {
-        db.collection("/comics").add({
+        /*db.collection("/comics").add({
           'title': comic.title,
           'createdAt': Timestamp.now(),
-        });
+        });*/
+        // Navigator.of(context).pushNamed('/selected-comic');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ComicSelectedScreen(
+              comic: comic,
+            ),
+          ),
+        );
       }),
       child: Stack(
         children: [
