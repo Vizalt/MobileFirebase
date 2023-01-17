@@ -60,7 +60,7 @@ Future<List<Comic>> loadComicList() async {
     path: "/v1/public/comics",
     queryParameters: {
       'formatType': 'collection',
-      // 'dateRange': '2012-01-01,2013-01-02',
+      //'dateRange': '2020-01-01,2022-01-02',
       'orderBy': orderBy,
       'limit': '50',
       'ts': timeStamp.toString(),
