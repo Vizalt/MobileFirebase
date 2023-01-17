@@ -18,7 +18,11 @@ class ComicWidget extends StatelessWidget {
       onTap: (() {
         db.collection("/comics").add({
           'title': comic.title,
+          'description': comic.description,
           'createdAt': Timestamp.now(),
+          'imageURL': comic.thumbnailPath,
+          'imageURLext': comic.thumbnailExt,
+          'pageCount': comic.pageCount,
         });
       }),
       child: Stack(

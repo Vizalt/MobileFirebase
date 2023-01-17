@@ -10,7 +10,6 @@ const publicKey = '4f2186559bb378f4f73e573643459fe8';
 class Comic {
   String title, description, format;
   int pageCount;
-  //String publishDate;
   String thumbnailPath, thumbnailExt;
 
   Comic({
@@ -18,19 +17,17 @@ class Comic {
     required this.description,
     required this.format,
     required this.pageCount,
-    //required this.publishDate,
     required this.thumbnailPath,
     required this.thumbnailExt,
   });
 
   Comic.fromJson(Map<String, dynamic> json)
-      : title = json["title"],
+      : title = json["title"] ?? "No title",
         description = json["description"] ?? "No description",
-        format = json["format"],
-        pageCount = json["pageCount"],
-        //publishDate = json["dates"]["date"],
-        thumbnailPath = json["thumbnail"]["path"],
-        thumbnailExt = json["thumbnail"]["extension"];
+        format = json["format"] ?? "No format",
+        pageCount = json["pageCount"] ?? "No page count",
+        thumbnailPath = json["thumbnail"]["path"] ?? "No image",
+        thumbnailExt = json["thumbnail"]["extension"] ?? "No extension";
 }
 
 final rng = math.Random();

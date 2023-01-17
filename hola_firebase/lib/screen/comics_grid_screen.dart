@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hola_firebase/model/comics.dart';
 import 'package:hola_firebase/widgets/comic_widget.dart';
 
-
 class ComicGridScreen extends StatefulWidget {
   const ComicGridScreen({Key? key}) : super(key: key);
 
@@ -31,7 +30,7 @@ class _ComicGridScreenState extends State<ComicGridScreen> {
           return GridView.builder(
             itemCount: comicList.length,
             itemBuilder: (context, index) =>
-                ComicWidget(comic: comicList![index]),
+                ComicWidget(comic: comicList[index]),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, // Relación de aspecto de las celdas
             ),
