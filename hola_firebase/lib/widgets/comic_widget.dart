@@ -40,7 +40,7 @@ class ComicWidget extends StatelessWidget {
         children: [
           Center(
             child: Image.network(
-              '${comic.thumbnailPath}/standard_large.${comic.thumbnailExt}', // URL de la imagen
+              '${comic.thumbnailPath}/portrait_xlarge.${comic.thumbnailExt}', // URL de la imagen
             ),
           ),
           Align(

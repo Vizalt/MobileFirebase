@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:crypto/crypto.dart';
+import 'package:flutter/src/widgets/container.dart';
 import 'package:http/http.dart' as http;
 
 const privateKey = '5d0bbe1d51ed99bea321abc9012296e10fba755f';
@@ -28,6 +29,8 @@ class Comic {
         pageCount = json["pageCount"] ?? "No page count",
         thumbnailPath = json["thumbnail"]["path"] ?? "No image",
         thumbnailExt = json["thumbnail"]["extension"] ?? "No extension";
+
+  map(Container Function(dynamic item) param0) {}
 }
 
 final rng = math.Random();
