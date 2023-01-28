@@ -44,7 +44,9 @@ class ComicSelectedScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(comic.title,
                     style: const TextStyle(
-                        fontSize: 20, fontStyle: FontStyle.italic),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.center),
               ),
               Container(
@@ -99,7 +101,10 @@ class ComicSelectedScreen extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return const AlertDialog(
-                              title: Text("Not Available"),
+                              title: Text(
+                                "Not Available",
+                                style: TextStyle(fontStyle: FontStyle.italic),
+                              ),
                               content: Text(
                                   "This option is not available right now, try again later."),
                             );
@@ -139,7 +144,10 @@ class ComicSelectedScreen extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return const AlertDialog(
-                              title: Text("Not Available"),
+                              title: Text(
+                                "Not Available",
+                                style: TextStyle(fontStyle: FontStyle.italic),
+                              ),
                               content: Text(
                                   "This option is not available right now, try again later."),
                             );
@@ -190,10 +198,11 @@ class ComicSelectedScreen extends StatelessWidget {
             'pageCount': comic.pageCount,
           });
         },
-        backgroundColor: const Color.fromARGB(255, 197, 52, 41),
+        backgroundColor: const Color.fromARGB(255, 122, 29, 22),
         child: const Icon(
-          Icons.turned_in_not,
+          Icons.add_rounded,
           color: Colors.white,
+          size: 40,
         ),
       ),
     );

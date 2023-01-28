@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../model/comics.dart';
-import '../screen/comic_selected_screen.dart';
-
 class ComicSavedList extends StatelessWidget {
   const ComicSavedList({
     Key? key,
