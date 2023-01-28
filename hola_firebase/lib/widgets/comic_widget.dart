@@ -34,6 +34,7 @@ class ComicWidget extends StatelessWidget {
           'imageURL': comic.thumbnailPath,
           'imageURLext': comic.thumbnailExt,
           'pageCount': comic.pageCount,
+          'format': comic.format,
         });
       },
       child: Stack(

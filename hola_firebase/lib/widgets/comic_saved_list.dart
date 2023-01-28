@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../model/comics.dart';
+import '../screen/comic_selected_screen.dart';
+
 class ComicSavedList extends StatelessWidget {
   const ComicSavedList({
     Key? key,
@@ -12,6 +15,13 @@ class ComicSavedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final db = FirebaseFirestore.instance;
+    Comic comic = Comic(
+        title: '',
+        description: '',
+        format: '',
+        pageCount: 0,
+        thumbnailPath: '',
+        thumbnailExt: '');
     return StreamBuilder(
       stream: db
           .collection("/comics")
@@ -37,7 +47,13 @@ class ComicSavedList extends StatelessWidget {
           itemBuilder: (context, index) {
             final doc = docs[index];
             return InkWell(
-              /*onTap: (() {
+              onTap: (() {
+                comic.title = doc["title"] ?? "No title";
+                comic.description = doc["description"] ?? "No decription";
+                comic.format = doc["format"] ?? "No format";
+                comic.pageCount = doc["pageCount"] ?? 0;
+                comic.thumbnailPath = doc["imageURL"] ?? "No image";
+                comic.thumbnailExt = doc["imageURLext"] ?? "No image";
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -46,7 +62,11 @@ class ComicSavedList extends StatelessWidget {
                     ),
                   ),
                 );
-              }),*/
+              }),
+              onDoubleTap: () {
+                String docID = doc.id;
+                db.doc("/comics/$docID").delete();
+              },
               child: Stack(
                 children: [
                   Center(

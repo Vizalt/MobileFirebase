@@ -196,6 +196,7 @@ class ComicSelectedScreen extends StatelessWidget {
             'imageURL': comic.thumbnailPath,
             'imageURLext': comic.thumbnailExt,
             'pageCount': comic.pageCount,
+            'format': comic.format,
           });
         },
         backgroundColor: const Color.fromARGB(255, 122, 29, 22),

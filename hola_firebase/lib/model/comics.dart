@@ -24,7 +24,7 @@ class Comic {
 
   Comic.fromJson(Map<String, dynamic> json)
       : title = json["title"] ?? "No title",
-        description = json["description"] ?? "No description",
+        description = json["description"] ?? "No description available",
         format = json["format"] ?? "No format",
         pageCount = json["pageCount"] ?? "No page count",
         thumbnailPath = json["thumbnail"]["path"] ?? "No image",
@@ -39,8 +39,10 @@ Future<List<Comic>> loadComicList() async {
   int timeStamp = DateTime.now().millisecondsSinceEpoch;
   String concatenatedString = '$timeStamp$privateKey$publicKey';
   String hash = md5.convert(utf8.encode(concatenatedString)).toString();
-  int random = rng.nextInt(5) + 1;
+  int random = rng.nextInt(10) + 1;
+  int randomDate = rng.nextInt(12);
   String orderBy = 'focDate';
+  String date = '2020';
   if (random == 1) {
     orderBy = 'focDate';
   }
@@ -48,10 +50,65 @@ Future<List<Comic>> loadComicList() async {
     orderBy = 'onsaleDate';
   }
   if (random == 3) {
-    orderBy = '-focDate';
+    orderBy = 'title';
   }
   if (random == 4) {
+    orderBy = 'issueNumber';
+  }
+  if (random == 5) {
+    orderBy = 'modified';
+  }
+  if (random == 6) {
+    orderBy = '-focDate';
+  }
+  if (random == 7) {
     orderBy = '-onsaleDate';
+  }
+  if (random == 8) {
+    orderBy = '-title';
+  }
+  if (random == 9) {
+    orderBy = '-issueNumber';
+  }
+  if (random == 10) {
+    orderBy = '-modified';
+  }
+  //Random Date
+  if (randomDate == 0) {
+    date = '2010';
+  }
+  if (randomDate == 1) {
+    date = '2011';
+  }
+  if (randomDate == 2) {
+    date = '2012';
+  }
+  if (randomDate == 3) {
+    date = '2013';
+  }
+  if (randomDate == 4) {
+    date = '2014';
+  }
+  if (randomDate == 5) {
+    date = '2015';
+  }
+  if (randomDate == 6) {
+    date = '2016';
+  }
+  if (randomDate == 7) {
+    date = '2017';
+  }
+  if (randomDate == 8) {
+    date = '2018';
+  }
+  if (randomDate == 9) {
+    date = '2019';
+  }
+  if (randomDate == 10) {
+    date = '2020';
+  }
+  if (randomDate == 11) {
+    date = '2021';
   }
   // final url2 = Uri.parse(
   //   "https://gateway.marvel.com:443/v1/public/comics?formatType=collection&dateRange=2012-01-01%2C2013-01-02&orderBy=$orderBy&limit=15&ts=$timeStamp&apikey=$publicKey&hash=$hash",
@@ -62,10 +119,10 @@ Future<List<Comic>> loadComicList() async {
     port: 443,
     path: "/v1/public/comics",
     queryParameters: {
-      'formatType': 'collection',
-      //'dateRange': '2020-01-01,2022-01-02',
+      //'formatType': 'comic',
+      'dateRange': '$date-01-01,2022-09-01',
       'orderBy': orderBy,
-      'limit': '50',
+      'limit': '60',
       'ts': timeStamp.toString(),
       'apikey': publicKey,
       'hash': hash,
