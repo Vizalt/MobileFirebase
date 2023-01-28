@@ -14,7 +14,8 @@ class ComicListScreen extends StatelessWidget {
         title: const Text('Saved Comics'),
         backgroundColor: const Color.fromARGB(255, 197, 52, 41),
       ),
-      body: ComicList(),
+      backgroundColor: const Color.fromARGB(255, 71, 27, 25),
+      body: const ComicSavedList(),
     );
   }
 }

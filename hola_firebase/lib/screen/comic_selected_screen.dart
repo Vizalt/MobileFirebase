@@ -18,17 +18,22 @@ class ComicSelectedScreen extends StatelessWidget {
         title: Text(comic.title),
         backgroundColor: const Color.fromARGB(255, 128, 26, 19),
       ),
-      body: Container(
-        color: Color.fromARGB(255, 71, 27, 25),
+      backgroundColor: const Color.fromARGB(255, 71, 27, 25),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Center(
           child: Column(
             children: [
               const SizedBox(
                 height: 20,
               ),
-              Center(
-                child: Image.network(
-                  '${comic.thumbnailPath}/portrait_fantastic.${comic.thumbnailExt}', // URL de la imagen
+              Container(
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.white10),
+                child: Center(
+                  child: Image.network(
+                    '${comic.thumbnailPath}/portrait_fantastic.${comic.thumbnailExt}', // URL de la imagen
+                  ),
                 ),
               ),
               const SizedBox(
@@ -88,58 +93,84 @@ class ComicSelectedScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1,
+                  InkWell(
+                    onTap: (() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              title: Text("Not Available"),
+                              content: Text(
+                                  "This option is not available right now, try again later."),
+                            );
+                          });
+                    }),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1,
+                        ),
                       ),
-                    ),
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    height: 35,
-                    width: 140,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.download,
-                          size: 30,
-                        ),
-                        Text(
-                          'Download',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      height: 35,
+                      width: 140,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.download,
+                            size: 30,
+                          ),
+                          Text(
+                            'Download',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 143, 15, 15),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1,
+                  InkWell(
+                    onTap: (() {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              title: Text("Not Available"),
+                              content: Text(
+                                  "This option is not available right now, try again later."),
+                            );
+                          });
+                    }),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 143, 15, 15),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1,
+                        ),
                       ),
-                    ),
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    height: 35,
-                    width: 150,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.play_arrow,
-                          size: 30,
-                        ),
-                        Text(
-                          'Read Online',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      height: 35,
+                      width: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.play_arrow,
+                            size: 30,
+                          ),
+                          Text(
+                            'Read Online',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

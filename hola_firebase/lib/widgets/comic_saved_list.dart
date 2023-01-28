@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../model/comics.dart';
 import '../screen/comic_selected_screen.dart';
 
-class ComicList extends StatelessWidget {
-  const ComicList({
+class ComicSavedList extends StatelessWidget {
+  const ComicSavedList({
     Key? key,
     //required this.comic,
   }) : super(key: key);
@@ -39,7 +39,6 @@ class ComicList extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             final doc = docs[index];
-            //final date = (doc['createdAt'] as Timestamp).toDate();
             return InkWell(
               /*onTap: (() {
                 Navigator.push(
@@ -77,12 +76,6 @@ class ComicList extends StatelessWidget {
                 ],
               ),
             );
-            /*return ListTile(
-              title: Text(doc['title']),
-              subtitle: Text(
-                "${date.toIso8601String()} ${doc.id}",
-              ),
-            );*/
           },
         );
       },

@@ -53,6 +53,7 @@ class ComicWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   comic.title,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 15, color: Colors.white),
                 ),
               ),
