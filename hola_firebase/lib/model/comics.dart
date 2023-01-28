@@ -122,6 +122,7 @@ Future<List<Comic>> loadComicList() async {
       //'formatType': 'comic',
       'dateRange': '$date-01-01,2022-09-01',
       'orderBy': orderBy,
+      'noVariants': 'true',
       'limit': '60',
       'ts': timeStamp.toString(),
       'apikey': publicKey,
