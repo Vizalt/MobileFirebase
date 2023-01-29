@@ -7,10 +7,7 @@ import '../screen/comic_selected_screen.dart';
 class ComicSavedList extends StatelessWidget {
   const ComicSavedList({
     Key? key,
-    //required this.comic,
   }) : super(key: key);
-
-  //final Comic comic;
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +81,7 @@ class ComicSavedList extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           doc["title"],
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                               fontSize: 15, color: Colors.white),
                         ),

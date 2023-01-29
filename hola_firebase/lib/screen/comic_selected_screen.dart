@@ -119,8 +119,6 @@ class ComicSelectedScreen extends StatelessWidget {
                           width: 1,
                         ),
                       ),
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
                       height: 35,
                       width: 140,
                       child: Row(
@@ -138,6 +136,7 @@ class ComicSelectedScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(width: 20),
                   InkWell(
                     onTap: (() {
                       showDialog(
@@ -162,8 +161,6 @@ class ComicSelectedScreen extends StatelessWidget {
                           width: 1,
                         ),
                       ),
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
                       height: 35,
                       width: 150,
                       child: Row(
@@ -183,6 +180,7 @@ class ComicSelectedScreen extends StatelessWidget {
                   )
                 ],
               ),
+              const SizedBox(height: 20),
             ],
           ),
         ),

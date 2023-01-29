@@ -25,7 +25,7 @@ class _ComicGridScreenState extends State<ComicGridScreen> {
         centerTitle: true,
       ),
       body: Container(
-        color: const Color.fromARGB(255, 77, 44, 44),
+        color: const Color.fromARGB(255, 71, 27, 25),
         child: FutureBuilder(
           future: loadComicList(),
           builder: (context, AsyncSnapshot<List<Comic>> snapshot) {
@@ -53,8 +53,9 @@ class _ComicGridScreenState extends State<ComicGridScreen> {
         },
         backgroundColor: const Color.fromARGB(255, 197, 52, 41),
         child: const Icon(
-          Icons.turned_in_not,
+          Icons.turned_in_not_rounded,
           color: Colors.white,
+          size: 30,
         ),
       ),
     );

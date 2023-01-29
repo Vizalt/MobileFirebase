@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (_) => const ComicGridScreen(),
         '/saved-list': (_) => const ComicListScreen(),
-        //'/selected-comic': (_) => ComicSelectedScreen(),
       },
     );
   }
